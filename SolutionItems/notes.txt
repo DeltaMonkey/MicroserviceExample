@@ -1,0 +1,22 @@
+--Project create commands
+    --Catalog
+    $ cd Service
+    $ mkdir Catalog
+    $ cd Catalog
+    $ dotnet new webapi --name FreeCourse.Service.Catalog
+    $ cd ..
+    $ dotnet sln add Services/Catalog/FreeCourse.Service.Catalog
+
+    --Shared
+    $ mkdir Shared
+    $ cd Shared
+    $ dotnet new classlib --framework "netstandard2.1" -o FreeCourse.Shared 
+    $ cd  ..
+    $ dotnet sln add Shared/FreeCourse.Shared
+
+--PORTS
+Catalog Service Port : 5011
+PhotoStockApi Port   : 5012
+Identity Server Port : 5001
+
+--Options pattern: Configürasyon dosyalarını bir class üzerine alarak okuma
