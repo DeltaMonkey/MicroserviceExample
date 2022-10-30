@@ -17,6 +17,7 @@
 --PORTS
 Catalog Service Port : 5011
 PhotoStockApi Port   : 5012
+Basket Service Port  : 5013
 Identity Server Port : 5001
 
 --Options pattern: Configürasyon dosyalarını bir class üzerine alarak okuma
