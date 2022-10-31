@@ -14,6 +14,7 @@ namespace FreeCourse.IdentityServer
         public static IEnumerable<ApiResource> ApiResources = new ApiResource[] {
             new ApiResource("resource_catalog"){Scopes = {"catalog_fullpermission"}},
             new ApiResource("resource_photo_stock"){Scopes = {"photo_stock_fullpermission"}},
+            new ApiResource("resource_basket"){Scopes = {"basket_fullpermission"}},
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -31,6 +32,7 @@ namespace FreeCourse.IdentityServer
             {
                 new ApiScope("catalog_fullpermission","Catalog API için full erişim"),
                 new ApiScope("photo_stock_fullpermission", "Photo Stock API için full erişim"),
+                new ApiScope("basket_fullpermission", "Basket API için full erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -57,6 +59,7 @@ namespace FreeCourse.IdentityServer
                         ,IdentityServerConstants.StandardScopes.OfflineAccess
                         ,IdentityServerConstants.LocalApi.ScopeName
                         ,"roles"
+                        ,"basket_fullpermission"
                     },
                     AccessTokenLifetime = 1*60*60,
                     RefreshTokenExpiration = TokenExpiration.Absolute,
