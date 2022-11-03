@@ -20,6 +20,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.RequireHttpsMetadata = false;
 });
 
+builder.Services.AddControllers(opt => {
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+});
+
 #region RedisSettingsConfigure
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
@@ -42,9 +46,7 @@ builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.AddScoped<IBasketService, BasketService>();
 
-builder.Services.AddControllers(opt => {
-    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
-});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
