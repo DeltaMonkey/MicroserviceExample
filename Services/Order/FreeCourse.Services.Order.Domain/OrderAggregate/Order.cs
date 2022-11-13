@@ -1,5 +1,4 @@
 ﻿using FreeCourse.Services.Order.Domain.Core;
-using System.Security.Cryptography.X509Certificates;
 
 namespace FreeCourse.Services.Order.Domain.OrderAggregate
 {
@@ -11,6 +10,12 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
 
         private readonly List<OrderItem> _orderItems;
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
+
+        public Order()
+        {
+            _orderItems = new List<OrderItem>();
+            CreateTime = DateTime.Now;
+        }
 
         public Order(Address address, string buyerId)
         {

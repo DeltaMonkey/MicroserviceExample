@@ -9,9 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
     options.Authority = builder.Configuration["IdentityServerURL"];
     options.Audience = "resource_discount";
