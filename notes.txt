@@ -24,4 +24,6 @@ Fake Payment Port    : 5016
 
 Identity Server Port : 5001
 
+Gateway Port         : 5000
+
 --Options pattern: Configürasyon dosyalarını bir class üzerine alarak okuma
